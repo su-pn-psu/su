@@ -16,8 +16,8 @@ return [
         // you can set your theme here - template comes with: 'light' and 'dark'
         'view' => [
             'theme' => [
-                'pathMap' => ['@app/views' => '@webroot/themes/light/views'],
-                'baseUrl' => '@web/themes/light',
+                'pathMap' => ['@backend/views' => '@backend/themes/adminlte/views'],
+                'baseUrl' => '@web/themes/adminlte',
             ],
         ],
         'assetManager' => [

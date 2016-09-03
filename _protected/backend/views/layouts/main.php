@@ -1,83 +1,76 @@
 <?php
-use backend\assets\AppAsset;
-use frontend\widgets\Alert;
+
 use yii\helpers\Html;
-use yii\bootstrap\Nav;
-use yii\bootstrap\NavBar;
-use yii\widgets\Breadcrumbs;
 
 /* @var $this \yii\web\View */
 /* @var $content string */
 
-AppAsset::register($this);
-?>
-<?php $this->beginPage() ?>
-<!DOCTYPE html>
-<html lang="<?= Yii::$app->language ?>">
-<head>
-    <meta charset="<?= Yii::$app->charset ?>">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <?= Html::csrfMetaTags() ?>
-    <title><?= Html::encode($this->title) ?></title>
-    <?php $this->head() ?>
-</head>
-<body>
-<?php $this->beginBody() ?>
-<div class="wrap">
-    <?php
-    NavBar::begin([
-        'brandLabel' => Yii::t('app', Yii::$app->name),
-        'brandUrl' => Yii::$app->homeUrl,
-        'options' => [
-            'class' => 'navbar-default navbar-fixed-top',
-        ],
-    ]);
 
-    // display Home and Users to admin+ roles
-    if (Yii::$app->user->can('admin')) {
-        $menuItems[] = ['label' => Yii::t('app', 'Home'), 'url' => ['/site/index']];
-        $menuItems[] = ['label' => Yii::t('app', 'Users'), 'url' => ['/user/index']];
-    }
-    
-    // display Logout to logged in users
-    if (!Yii::$app->user->isGuest) {
-        $menuItems[] = [
-            'label' => Yii::t('app', 'Logout'). ' (' . Yii::$app->user->identity->username . ')',
-            'url' => ['/site/logout'],
-            'linkOptions' => ['data-method' => 'post']
-        ];
+if (Yii::$app->controller->action->id === 'login') {
+    /**
+     * Do not use this code in your template. Remove it. 
+     * Instead, use the code  $this->layout = '//main-login'; in your controller.
+     */
+    echo $this->render(
+            'main-login', ['content' => $content]
+    );
+} else {
+
+    if (class_exists('backend\assets\AppAsset')) {
+        $asset = backend\assets\AppAsset::register($this);
+    } else {
+        app\assets\AppAsset::register($this);
     }
 
-    // display Login page to guests of the site
-    if (Yii::$app->user->isGuest) {
-        $menuItems[] = ['label' => Yii::t('app', 'Login'), 'url' => ['/site/login']];
-    }
+    dmstr\web\AdminLteAsset::register($this);
 
-    echo Nav::widget([
-        'options' => ['class' => 'navbar-nav navbar-right'],
-        'items' => $menuItems,
-    ]);
-    
-    NavBar::end();
+    $directoryAsset = Yii::$app->assetManager->getPublishedUrl('@vendor/almasaeed2010/adminlte/dist');
+    /**
+     * เช็ค homePage
+     */
+    $controller = Yii::$app->controller;
+    $default_controller = Yii::$app->defaultRoute;
+    $collapse = (($controller->id === $default_controller) && ($controller->action->id === $controller->defaultAction)) ? '' : 'sidebar-collapse';
     ?>
+    <?php $this->beginPage() ?>
+    <!DOCTYPE html>
+    <html lang="<?= Yii::$app->language ?>">
+        <head>
+            <meta charset="<?= Yii::$app->charset ?>"/>
+            <meta name="viewport" content="width=device-width, initial-scale=1">
+            <?= Html::csrfMetaTags() ?>
+            <title><?= Html::encode($this->title) ?></title>
+            <?php $this->head() ?>
+        </head>
+        <body class="<?= \dmstr\helpers\AdminLteHelper::skinClass() ?> hold-transition sidebar-mini fixed <?= $collapse ?>">
+            <?php $this->beginBody() ?>
+            <div class="wrapper">
 
-    <div class="container">
-    <?= Breadcrumbs::widget([
-        'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],
-    ]) ?>
-    <?= Alert::widget() ?>
-    <?= $content ?>
-    </div>
-</div>
+                <?=
+                $this->render(
+                        'header.php', [
+                    'directoryAsset' => $directoryAsset,
+                    'asset' => $asset
+                        ]
+                )
+                ?>
 
-<footer class="footer">
-    <div class="container">
-    <p class="pull-left">&copy; <?= Yii::t('app', Yii::$app->name) ?> <?= date('Y') ?></p>
-    <p class="pull-right"><?= Yii::powered() ?></p>
-    </div>
-</footer>
+                <?=
+                $this->render(
+                        'left.php', ['directoryAsset' => $directoryAsset]
+                )
+                ?>
 
-<?php $this->endBody() ?>
-</body>
-</html>
-<?php $this->endPage() ?>
+                <?=
+                $this->render(
+                        'content.php', ['content' => $content, 'directoryAsset' => $directoryAsset]
+                )
+                ?>
+
+            </div>
+
+            <?php $this->endBody() ?>
+        </body>
+    </html>
+    <?php $this->endPage() ?>
+<?php } ?>
