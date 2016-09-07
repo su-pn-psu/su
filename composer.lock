@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "630283ba1b1c11bd6e608496f8f30675",
-    "content-hash": "4ad0e2c4c861baeebbfde957e369463a",
+    "hash": "f93457e6beebb2902d4162dbaeb3c9f5",
+    "content-hash": "45154ca9aa368350aaf395dbe316c580",
     "packages": [
         {
             "name": "almasaeed2010/adminlte",
@@ -46,6 +46,55 @@
                 "web"
             ],
             "time": "2016-08-04 23:22:06"
+        },
+        {
+            "name": "andatech/yii2-core",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/andatech/yii2-core.git",
+                "reference": "584514cb5d66b71b8cf2372c35aaaab74c688cc2"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/andatech/yii2-core/zipball/584514cb5d66b71b8cf2372c35aaaab74c688cc2",
+                "reference": "584514cb5d66b71b8cf2372c35aaaab74c688cc2",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.4.0",
+                "yiisoft/yii2": "*",
+                "yiisoft/yii2-bootstrap": "*"
+            },
+            "type": "yii2-extension",
+            "extra": {
+                "asset-installer-paths": {
+                    "npm-asset-library": "vendor/npm",
+                    "bower-asset-library": "vendor/bower"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "anda\\core\\": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "GPL-3.0"
+            ],
+            "authors": [
+                {
+                    "name": "Anda Tech",
+                    "email": "kuakling@gmail.com",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Yii 2 for base system",
+            "keywords": [
+                "extension",
+                "yii2"
+            ],
+            "time": "2016-08-11 02:14:05"
         },
         {
             "name": "bower-asset/bootstrap",
@@ -481,6 +530,158 @@
                 "html"
             ],
             "time": "2016-07-16 12:58:58"
+        },
+        {
+            "name": "firdows/yii2-menu",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/firdows/yii2-menu.git",
+                "reference": "ea2496be80383afd9f4a7dcc7f7e1caf54ea5e5c"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/firdows/yii2-menu/zipball/ea2496be80383afd9f4a7dcc7f7e1caf54ea5e5c",
+                "reference": "ea2496be80383afd9f4a7dcc7f7e1caf54ea5e5c",
+                "shasum": ""
+            },
+            "require": {
+                "kartik-v/yii2-widgets": "*",
+                "mdmsoft/yii2-admin": "~2.0",
+                "yiisoft/yii2": "*"
+            },
+            "type": "yii2-extension",
+            "extra": {
+                "asset-installer-paths": {
+                    "npm-asset-library": "vendor/npm",
+                    "bower-asset-library": "vendor/bower"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "firdows\\menu\\": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "GPL-3.0"
+            ],
+            "authors": [
+                {
+                    "name": "Ahamad Jehdu",
+                    "email": "ahamad.jedu@gmail.com"
+                }
+            ],
+            "description": "menu system",
+            "keywords": [
+                "extension",
+                "menu",
+                "system",
+                "yii2"
+            ],
+            "time": "2016-08-10 16:46:05"
+        },
+        {
+            "name": "imagine/imagine",
+            "version": "0.5.x-dev",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/avalanche123/Imagine.git",
+                "reference": "343580fceed1f89220481ac98480e92f47d91e6c"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/avalanche123/Imagine/zipball/343580fceed1f89220481ac98480e92f47d91e6c",
+                "reference": "343580fceed1f89220481ac98480e92f47d91e6c",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.2"
+            },
+            "require-dev": {
+                "sami/sami": "dev-master"
+            },
+            "suggest": {
+                "ext-gd": "to use the GD implementation",
+                "ext-gmagick": "to use the Gmagick implementation",
+                "ext-imagick": "to use the Imagick implementation"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-develop": "0.5-dev"
+                }
+            },
+            "autoload": {
+                "psr-0": {
+                    "Imagine": "lib/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Bulat Shakirzyanov",
+                    "email": "mallluhuct@gmail.com",
+                    "homepage": "http://avalanche123.com"
+                }
+            ],
+            "description": "Image processing for PHP 5.3",
+            "homepage": "http://imagine.readthedocs.org/",
+            "keywords": [
+                "drawing",
+                "graphics",
+                "image manipulation",
+                "image processing"
+            ],
+            "time": "2014-06-13 10:54:04"
+        },
+        {
+            "name": "karpoff/yii2-crop-image-upload",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/karpoff/yii2-crop-image-upload.git",
+                "reference": "961e65069759c754ffdd2c54050dad14c26abf70"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/karpoff/yii2-crop-image-upload/zipball/961e65069759c754ffdd2c54050dad14c26abf70",
+                "reference": "961e65069759c754ffdd2c54050dad14c26abf70",
+                "shasum": ""
+            },
+            "require": {
+                "mongosoft/yii2-upload-behavior": "*",
+                "yiisoft/yii2": "*",
+                "yiisoft/yii2-imagine": "*"
+            },
+            "type": "yii2-extension",
+            "autoload": {
+                "psr-4": {
+                    "karpoff\\icrop\\": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Anton Karpov",
+                    "email": "karpoff@bk.ru"
+                }
+            ],
+            "description": "Yii 2 Crop image upload widget",
+            "homepage": "https://github.com/karpoff/yii2-crop-image-upload",
+            "keywords": [
+                "crop",
+                "image",
+                "upload",
+                "yii2"
+            ],
+            "time": "2015-11-13 13:15:24"
         },
         {
             "name": "kartik-v/bootstrap-fileinput",
@@ -1799,6 +2000,59 @@
             "time": "2016-05-20 23:38:13"
         },
         {
+            "name": "mongosoft/yii2-upload-behavior",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/mohorev/yii2-upload-behavior.git",
+                "reference": "eb3ba838337900fcb8a852b11a83d873f6554139"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/mohorev/yii2-upload-behavior/zipball/eb3ba838337900fcb8a852b11a83d873f6554139",
+                "reference": "eb3ba838337900fcb8a852b11a83d873f6554139",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.4.0",
+                "yiisoft/yii2": "*",
+                "yiisoft/yii2-imagine": "*"
+            },
+            "require-dev": {
+                "phpunit/dbunit": "~1.0",
+                "phpunit/phpunit": "~4.0"
+            },
+            "type": "yii2-extension",
+            "autoload": {
+                "psr-4": {
+                    "mongosoft\\file\\": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD 3-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Alexander Mohorev",
+                    "email": "dev.mohorev@gmail.com"
+                }
+            ],
+            "description": "Upload behavior for Yii 2",
+            "homepage": "https://github.com/mongosoft/yii2-upload-behavior",
+            "keywords": [
+                "Behavior",
+                "extension",
+                "file",
+                "image",
+                "resize",
+                "thumb",
+                "upload",
+                "yii2"
+            ],
+            "time": "2016-05-26 09:00:57"
+        },
+        {
             "name": "rmrevin/yii2-fontawesome",
             "version": "2.16.1",
             "source": {
@@ -1848,6 +2102,139 @@
                 "yii"
             ],
             "time": "2016-08-31 12:41:25"
+        },
+        {
+            "name": "su-pn-psu/yii2-core",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/su-pn-psu/yii-core.git",
+                "reference": "bd04368686c0b2ef4bfb3dca6ac403361529ce3c"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/su-pn-psu/yii-core/zipball/bd04368686c0b2ef4bfb3dca6ac403361529ce3c",
+                "reference": "bd04368686c0b2ef4bfb3dca6ac403361529ce3c",
+                "shasum": ""
+            },
+            "require": {
+                "andatech/yii2-core": "dev-master"
+            },
+            "type": "yii2-extension",
+            "autoload": {
+                "psr-4": {
+                    "suPnPsu\\core\\": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "GPL-3.0"
+            ],
+            "authors": [
+                {
+                    "name": "Student Union Service",
+                    "email": "ahamad.jedu@gmail.com",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Yii2 for Core management system.",
+            "keywords": [
+                "extension",
+                "yii2"
+            ],
+            "time": "2016-09-05 11:12:28"
+        },
+        {
+            "name": "su-pn-psu/yii2-material",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/su-pn-psu/yii2-material.git",
+                "reference": "bdb4f29b1617f8f098bb07a4fa36d85a49e3bc5d"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/su-pn-psu/yii2-material/zipball/bdb4f29b1617f8f098bb07a4fa36d85a49e3bc5d",
+                "reference": "bdb4f29b1617f8f098bb07a4fa36d85a49e3bc5d",
+                "shasum": ""
+            },
+            "require": {
+                "su-pn-psu/yii2-core": "dev-master"
+            },
+            "type": "yii2-extension",
+            "autoload": {
+                "psr-4": {
+                    "suPnPsu\\material\\": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "GPL-3.0"
+            ],
+            "authors": [
+                {
+                    "name": "Student Union Service",
+                    "email": "ahamad.jedu@gmail.com",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Material management system for Yii2.",
+            "keywords": [
+                "extension",
+                "yii2"
+            ],
+            "time": "2016-09-05 14:29:27"
+        },
+        {
+            "name": "su-pn-psu/yii2-user",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/su-pn-psu/yii2-user.git",
+                "reference": "f24745a9f950f9cf2f8f5cf9ba58e40610c8f16b"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/su-pn-psu/yii2-user/zipball/f24745a9f950f9cf2f8f5cf9ba58e40610c8f16b",
+                "reference": "f24745a9f950f9cf2f8f5cf9ba58e40610c8f16b",
+                "shasum": ""
+            },
+            "require": {
+                "dmstr/yii2-adminlte-asset": "2.*",
+                "karpoff/yii2-crop-image-upload": "*",
+                "mdmsoft/yii2-admin": "~2.0",
+                "php": ">=5.4.0",
+                "su-pn-psu/yii2-core": "*"
+            },
+            "type": "yii2-extension",
+            "extra": {
+                "asset-installer-paths": {
+                    "npm-asset-library": "vendor/npm",
+                    "bower-asset-library": "vendor/bower"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "suPnPsu\\user\\": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "GPL-3.0"
+            ],
+            "authors": [
+                {
+                    "name": "Anda Technology",
+                    "email": "kuakling@gmail.com",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Yii 2 for User",
+            "keywords": [
+                "extension",
+                "yii2"
+            ],
+            "time": "2016-09-07 03:42:54"
         },
         {
             "name": "swiftmailer/swiftmailer",
@@ -2094,6 +2481,54 @@
             "time": "2016-02-06 00:49:24"
         },
         {
+            "name": "yiisoft/yii2-imagine",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/yiisoft/yii2-imagine.git",
+                "reference": "47177c362e01e7b66e4aae960699a60746b7ecdf"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/yiisoft/yii2-imagine/zipball/47177c362e01e7b66e4aae960699a60746b7ecdf",
+                "reference": "47177c362e01e7b66e4aae960699a60746b7ecdf",
+                "shasum": ""
+            },
+            "require": {
+                "imagine/imagine": "0.5.*",
+                "yiisoft/yii2": "*"
+            },
+            "type": "yii2-extension",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "2.0.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "yii\\imagine\\": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Antonio Ramirez",
+                    "email": "amigo.cobos@gmail.com"
+                }
+            ],
+            "description": "The Imagine integration for the Yii framework",
+            "keywords": [
+                "helper",
+                "image",
+                "imagine",
+                "yii2"
+            ],
+            "time": "2016-09-04 15:16:50"
+        },
+        {
             "name": "yiisoft/yii2-swiftmailer",
             "version": "2.0.5",
             "source": {
@@ -2188,6 +2623,55 @@
         }
     ],
     "packages-dev": [
+        {
+            "name": "andatech/yii2-filemanager",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/andatech/yii2-filemanager.git",
+                "reference": "9083500924c68bba9363b3241e4cf096cc571406"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/andatech/yii2-filemanager/zipball/9083500924c68bba9363b3241e4cf096cc571406",
+                "reference": "9083500924c68bba9363b3241e4cf096cc571406",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.4.0",
+                "yiisoft/yii2": "*",
+                "yiisoft/yii2-bootstrap": "*"
+            },
+            "type": "yii2-extension",
+            "extra": {
+                "asset-installer-paths": {
+                    "npm-asset-library": "vendor/npm",
+                    "bower-asset-library": "vendor/bower"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "anda\\filemanager\\": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "GPL-3.0"
+            ],
+            "authors": [
+                {
+                    "name": "Anda Tech",
+                    "email": "kuakling@gmail.com",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Yii 2 filemanager with CKEditor or TinyMCE",
+            "keywords": [
+                "extension",
+                "yii2"
+            ],
+            "time": "2016-08-10 03:46:23"
+        },
         {
             "name": "bower-asset/typeahead.js",
             "version": "v0.11.1",
@@ -2335,6 +2819,55 @@
                 "fixtures"
             ],
             "time": "2016-04-29 12:21:54"
+        },
+        {
+            "name": "miragesoft/yii2-basicfilemanager",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/miragesoft/yii2-basicfilemanager.git",
+                "reference": "04976e6458997e4b94949daf361d23fbd35924d2"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/miragesoft/yii2-basicfilemanager/zipball/04976e6458997e4b94949daf361d23fbd35924d2",
+                "reference": "04976e6458997e4b94949daf361d23fbd35924d2",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.4.0",
+                "yiisoft/yii2": "*",
+                "yiisoft/yii2-bootstrap": "*"
+            },
+            "type": "yii2-extension",
+            "extra": {
+                "asset-installer-paths": {
+                    "npm-asset-library": "vendor/npm",
+                    "bower-asset-library": "vendor/bower"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "mirage\\basicfilemanager\\": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "GPL-3.0"
+            ],
+            "authors": [
+                {
+                    "name": "Mirage Studio TH",
+                    "email": "miragestudioth@gmail.com",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Basic Filemanager",
+            "keywords": [
+                "extension",
+                "yii2"
+            ],
+            "time": "2016-05-18 03:51:35"
         },
         {
             "name": "myclabs/deep-copy",
@@ -2610,11 +3143,14 @@
         }
     ],
     "aliases": [],
-    "minimum-stability": "stable",
+    "minimum-stability": "dev",
     "stability-flags": {
         "kartik-v/yii2-password": 20,
         "yurkinx/yii2-image": 20,
-        "kartik-v/yii2-widget-activeform": 20
+        "kartik-v/yii2-widget-activeform": 20,
+        "su-pn-psu/yii2-core": 20,
+        "su-pn-psu/yii2-material": 20,
+        "su-pn-psu/yii2-user": 20
     },
     "prefer-stable": false,
     "prefer-lowest": false,

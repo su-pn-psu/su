@@ -8,7 +8,7 @@
         "tutorial": "http://www.freetuts.org/tutorial/view?id=6",
         "source": "https://github.com/nenad-zivkovic/yii2-advanced-template"
     },
-    "minimum-stability": "stable",
+    "minimum-stability": "dev",
     "require": {
         "php": ">=5.4.0",
         "yiisoft/yii2": "*",
@@ -20,7 +20,11 @@
         "kartik-v/yii2-widgets": "*",
         "yurkinx/yii2-image": "dev-master",        
         "kartik-v/yii2-widget-activeform": "@dev",
-        "dixonsatit/yii2-thai-year-formatter": "*"
+        "dixonsatit/yii2-thai-year-formatter": "*",
+        "su-pn-psu/yii2-core": "dev-master",
+        "firdows/yii2-menu": "*",
+        "su-pn-psu/yii2-material": "dev-master",
+        "su-pn-psu/yii2-user": "dev-master"
     },
     "require-dev": {
         "yiisoft/yii2-codeception": "*",
