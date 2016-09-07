@@ -1,7 +1,8 @@
 <?php
 /* @var $this yii\web\View */
-
+//use Yii;
 $this->title = Yii::t('app', Yii::$app->name);
+echo Yii::getAlias('@uploads');
 ?>
 <div class="site-index">
 

@@ -31,6 +31,8 @@ if (Yii::$app->controller->action->id === 'login') {
     $controller = Yii::$app->controller;
     $default_controller = Yii::$app->defaultRoute;
     $collapse = (($controller->id === $default_controller) && ($controller->action->id === $controller->defaultAction)) ? '' : 'sidebar-collapse';
+    $user = Yii::$app->user->identity->profile->resultInfo;
+
     ?>
     <?php $this->beginPage() ?>
     <!DOCTYPE html>
@@ -50,14 +52,19 @@ if (Yii::$app->controller->action->id === 'login') {
                 $this->render(
                         'header.php', [
                     'directoryAsset' => $directoryAsset,
-                    'asset' => $asset
+                    'asset' => $asset,
+                            'user'=> $user
+                            
                         ]
                 )
                 ?>
 
                 <?=
                 $this->render(
-                        'left.php', ['directoryAsset' => $directoryAsset]
+                        'left.php', [
+                            'directoryAsset' => $directoryAsset,
+                            'user'=> $user
+                        ]
                 )
                 ?>
 

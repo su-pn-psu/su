@@ -21,6 +21,7 @@ use yii\bootstrap\Nav;
 //echo "<pre>";
 //print_r(Yii::$app->getAuthManager()->getPermissions());
 //echo "</pre>";
+
 ?>
 
 
@@ -32,11 +33,11 @@ use yii\bootstrap\Nav;
         <div class="user-panel">
             <div class="pull-left image" >                
                 <div class="circle user-left-img" >
-                            <img src="<?= common\models\User::getMyImg() ?>" width="100%" alt="User Image"/>
+                            <img src="<?= $user->avatar ?>" width="100%" alt="User Image"/>
                 </div>
             </div>
             <div class="pull-left info">
-                <p><?= Yii::$app->user->identity->displayname ?></p>
+                <p><?= $user->fullname ?></p>
 
                 <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
             </div>
@@ -52,15 +53,18 @@ use yii\bootstrap\Nav;
                 </span>
             </div>
         </form>
+        
         <?php
         /**
          * Bug ควรใช้ BackendNavigate();
          */
-        $nav = new culturePnPsu\core\models\BackendNavigate();
-        $nav = new common\models\Navigate();
+        $nav = new suPnPsu\core\models\BackendNavigate();
+        //$nav = new common\models\Navigate();
+        
         $menu1= $nav->menu(1);
 //        print_r($menu1);
 //        exit();
+        $menu1 = mdm\admin\components\Helper::filter($menu1);
         echo dmstr\widgets\Menu::widget([
             'options' => ['class' => 'sidebar-menu'],
             //'linkTemplate' =>'<a href="{url}">{icon} {label} {badge}</a>',

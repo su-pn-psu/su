@@ -80,23 +80,24 @@ use yii\helpers\Url;
                 <li class="dropdown user user-menu">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                         <div class="circle user-bar-img" >
-                            <img src="<?= common\models\User::getMyImg() ?>" width="100%" alt="User Image"/>
+                            <img src="<?= $user->avatar ?>" width="100%" alt="User Image"/>
                         </div>
-                        <span class="hidden-xs"><?= Yii::$app->user->identity->displayname ?></span>
+                        <span class="hidden-xs"><?= $user->fullname ?></span>
 
                     </a>
                     <ul class="dropdown-menu">
                         <!-- User image -->
-                        <li class="user-header">
+                        <li class="user-header" style="background-image: url(<?= $user->cover ?>);background-size: cover;">
 
                             <div class="circle user-header-img">
-                                <img src="<?= common\models\User::getMyImg() ?>" width="100%" alt="User Image"/>
+                                <img src="<?= $user->avatar ?>" width="100%" alt="User Image"/>
                             </div>
 
 
-                            <p>
-                                <?= Yii::$app->user->identity->displayname ?>
+                            <p style="background:#fff;color:#000;opacity: 0.6;padding: 10px 0 5px;"> 
+                                <?= $user->fullname ?>
                                 <small>Member since Nov. 2012</small>
+                                
                             </p>
                         </li>
                         <!-- Menu Body -->
@@ -114,7 +115,7 @@ use yii\helpers\Url;
                         <!-- Menu Footer-->
                         <li class="user-footer">
                             <div class="pull-left">
-                                <a href="<?= Url::to(['/site/profile']) ?>" class="btn btn-default btn-flat">Profile</a>
+                                <a href="<?= Url::to(['/user']) ?>" class="btn btn-default btn-flat">Profile</a>
                             </div>
                             <div class="pull-right">
                                 <?=

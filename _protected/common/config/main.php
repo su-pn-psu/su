@@ -1,7 +1,7 @@
 <?php
 
 return [
-    'name' => 'ADVANCED',
+    'name' => 'องค์การนักศึกษา',
     //'language' => 'sr',
     'vendorPath' => dirname(dirname(__DIR__)) . '/vendor',
     'bootstrap' => ['common\components\Aliases'],
