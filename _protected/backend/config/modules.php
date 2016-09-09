@@ -24,7 +24,7 @@ return [
         'class' => 'suPnPsu\user\Module',
         'loginBy' => 'db', //db or ldap (ldap not work)
         'userUploadDir' => '@uploads', //Base uploads Directory
-        'userUploadUrl' => '/su/uploads', //Url of userUploadDir
+        'userUploadUrl' => '/uploads', //Url of userUploadDir
         'userUploadPath' => 'user', //path after upload directory
         'admins' => ['admin', 'root'], //list of username for manage users
         'rbacUrl'=>['/rbac']
@@ -49,4 +49,7 @@ return [
             'uploadPath' => 'uploads',
         ],
     ],
+    'borrow-material'=>[
+        'class' => 'suPnPsu\borrowMaterial\Module',
+    ]
 ];

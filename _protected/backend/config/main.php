@@ -16,6 +16,7 @@ return [
             'theme' => [
                 'pathMap' => ['@backend/views' => '@backend/themes/adminlte/views'],
                 'baseUrl' => '@web/themes/adminlte',
+                
             ],
         ],
         'assetManager' => [
@@ -72,8 +73,9 @@ return [
             'site/logout',
             'site/login',
             'site/error',
-        //'gii/*',
+        'gii/*',
         'rbac/*',
+            'site/index',
             'user/regist/signup'
         //'debug/*',
         ]

@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "f93457e6beebb2902d4162dbaeb3c9f5",
-    "content-hash": "45154ca9aa368350aaf395dbe316c580",
+    "hash": "0015bfc28838feda0ba62c9868837af9",
+    "content-hash": "f43f49c4523bac7e256872f10e26c06c",
     "packages": [
         {
             "name": "almasaeed2010/adminlte",
@@ -2104,6 +2104,47 @@
             "time": "2016-08-31 12:41:25"
         },
         {
+            "name": "su-pn-psu/yii2-borrow-material",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/su-pn-psu/yii2-borrow-material.git",
+                "reference": "a4ae9434715ab7c37b5a72a97e4ed8934f23cbcf"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/su-pn-psu/yii2-borrow-material/zipball/a4ae9434715ab7c37b5a72a97e4ed8934f23cbcf",
+                "reference": "a4ae9434715ab7c37b5a72a97e4ed8934f23cbcf",
+                "shasum": ""
+            },
+            "require": {
+                "su-pn-psu/yii2-core": "dev-master"
+            },
+            "type": "yii2-extension",
+            "autoload": {
+                "psr-4": {
+                    "suPnPsu\\borrowMaterial\\": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "GPL-3.0"
+            ],
+            "authors": [
+                {
+                    "name": "Student Union Service",
+                    "email": "ahamad.jedu@gmail.com",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Borrow material management system for Yii2.",
+            "keywords": [
+                "extension",
+                "yii2"
+            ],
+            "time": "2016-09-09 01:50:45"
+        },
+        {
             "name": "su-pn-psu/yii2-core",
             "version": "dev-master",
             "source": {
@@ -3150,7 +3191,8 @@
         "kartik-v/yii2-widget-activeform": 20,
         "su-pn-psu/yii2-core": 20,
         "su-pn-psu/yii2-material": 20,
-        "su-pn-psu/yii2-user": 20
+        "su-pn-psu/yii2-user": 20,
+        "su-pn-psu/yii2-borrow-material": 20
     },
     "prefer-stable": false,
     "prefer-lowest": false,

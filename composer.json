@@ -24,7 +24,8 @@
         "su-pn-psu/yii2-core": "dev-master",
         "firdows/yii2-menu": "*",
         "su-pn-psu/yii2-material": "dev-master",
-        "su-pn-psu/yii2-user": "dev-master"
+        "su-pn-psu/yii2-user": "dev-master",
+        "su-pn-psu/yii2-borrow-material": "dev-master"
     },
     "require-dev": {
         "yiisoft/yii2-codeception": "*",
