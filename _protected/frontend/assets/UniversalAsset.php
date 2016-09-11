@@ -22,14 +22,19 @@ class UniversalAsset extends AssetBundle
     public $baseUrl = '@themes';
 
     public $css = [
-        //'css/style.css',
+        'css/animate.css',
+        'css/style.default.css',
+        'css/custom.css',
+        'css/owl.carousel.css',
+        'css/owl.theme.css',
     ];
 
     public $js = [
+        'js/jquery.js',
     ];
 
     public $depends = [
-        'yii\web\YiiAsset',
-        'yii\bootstrap\BootstrapAsset',
+//        'yii\web\YiiAsset',
+//        'yii\bootstrap\BootstrapAsset',
     ];
 }

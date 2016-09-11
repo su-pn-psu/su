@@ -22,48 +22,15 @@ $path = $asset->baseUrl;
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <?= Html::csrfMetaTags() ?>
         <title><?= Html::encode($this->title) ?></title>
-
-        <meta name="robots" content="all,follow">
-        <meta name="googlebot" content="index,follow,snippet,archive">
-        <meta name="keywords" content="">
-
-
         <?php $this->head() ?>
-        <link href='http://fonts.googleapis.com/css?family=Roboto:400,100,100italic,300,300italic,500,700,800' rel='stylesheet' type='text/css'>
 
-        <!-- Bootstrap and Font Awesome css -->
-        <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
-        <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
-
-        <!-- Css animations  -->
-        <link href="<?= $path ?>/css/animate.css" rel="stylesheet">
-
-        <!-- Theme stylesheet, if possible do not edit this stylesheet -->
-        <link href="<?= $path ?>/css/style.default.css" rel="stylesheet" id="theme-stylesheet">
-
-        <!-- Custom stylesheet - for your changes -->
-        <link href="<?= $path ?>/css/custom.css" rel="stylesheet">
 
         <!-- Responsivity for older IE -->
         <!--[if lt IE 9]>
             <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
             <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-    <![endif]-->
+        <![endif]-->
 
-        <!-- Favicon and apple touch icons-->
-        <link rel="shortcut icon" href="<?= $path ?>/img/favicon.ico" type="image/x-icon" />
-        <link rel="apple-touch-icon" href="<?= $path ?>/img/apple-touch-icon.png" />
-        <link rel="apple-touch-icon" sizes="57x57" href="<?= $path ?>/img/apple-touch-icon-57x57.png" />
-        <link rel="apple-touch-icon" sizes="72x72" href="<?= $path ?>/img/apple-touch-icon-72x72.png" />
-        <link rel="apple-touch-icon" sizes="76x76" href="<?= $path ?>/img/apple-touch-icon-76x76.png" />
-        <link rel="apple-touch-icon" sizes="114x114" href="<?= $path ?>/img/apple-touch-icon-114x114.png" />
-        <link rel="apple-touch-icon" sizes="120x120" href="<?= $path ?>/img/apple-touch-icon-120x120.png" />
-        <link rel="apple-touch-icon" sizes="144x144" href="<?= $path ?>/img/apple-touch-icon-144x144.png" />
-        <link rel="apple-touch-icon" sizes="152x152" href="<?= $path ?>/img/apple-touch-icon-152x152.png" />
-        <!-- owl carousel css -->
-
-        <link href="<?= $path ?>/css/owl.carousel.css" rel="stylesheet">
-        <link href="<?= $path ?>/css/owl.theme.css" rel="stylesheet">
 
 
 
@@ -72,9 +39,9 @@ $path = $asset->baseUrl;
         <?php $this->beginBody() ?>
         <div id="all">
 
-           <?=$this->render('head',['path'=>$path]);?>
+            <?= $this->render('head', ['path' => $path]); ?>
 
-            
+
 
 
             <div id="heading-breadcrumbs">
@@ -99,19 +66,19 @@ $path = $asset->baseUrl;
 
             <div id="content">
                 <div class="container">
-                    <?php if(Alert::widget()):?>
-                    <section>
-                        <div class="row">
-                            <div class="col-md-12">                            
-                                <?= Alert::widget() ?>
-                                
-                            </div>
-                        </div>
-                    </section>
-                    <?php endif;?>
+                    <?php if (Alert::widget()): ?>
+                        <section>
+                            <div class="row">
+                                <div class="col-md-12">                            
+                                    <?= Alert::widget() ?>
 
-                    <?php /*=$this->render('left-menu',['content'=>$content]);*/?>
-                    <?=$this->render('contents',['content'=>$content]);?>
+                                </div>
+                            </div>
+                        </section>
+                    <?php endif; ?>
+
+                    <?php /* =$this->render('left-menu',['content'=>$content]); */ ?>
+                    <?= $this->render('contents', ['content' => $content]); ?>
 
                 </div>
                 <!-- /#contact.container -->
