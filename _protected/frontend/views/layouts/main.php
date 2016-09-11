@@ -72,78 +72,9 @@ $path = $asset->baseUrl;
         <?php $this->beginBody() ?>
         <div id="all">
 
-            <header>
+           <?=$this->render('head',['path'=>$path]);?>
 
-                <!-- *** TOP ***_____________________________ -->
-                <div id="top">
-                    <div class="container">
-                        <div class="row">
-                            <div class="col-xs-5 contact">
-                                <p class="hidden-sm hidden-xs">Contact us on +420 777 555 333 or hello@universal.com.</p>
-                                <p class="hidden-md hidden-lg"><a href="#" data-animate-hover="pulse"><i class="fa fa-phone"></i></a>  <a href="#" data-animate-hover="pulse"><i class="fa fa-envelope"></i></a>
-                                </p>
-                            </div>
-                            <div class="col-xs-7 text-right">
-                                <!--                                <div class="social">
-                                                                    <a href="#" class="external facebook" data-animate-hover="pulse"><i class="fa fa-facebook"></i></a>
-                                                                    <a href="#" class="external gplus" data-animate-hover="pulse"><i class="fa fa-google-plus"></i></a>
-                                                                    <a href="#" class="external twitter" data-animate-hover="pulse"><i class="fa fa-twitter"></i></a>
-                                                                    <a href="#" class="email" data-animate-hover="pulse"><i class="fa fa-envelope"></i></a>
-                                                                </div>-->
-
-                                <div class="login text-right">
-                                    <a href="#" data-toggle="modal" data-target="#login-modal"><i class="fa fa-sign-in"></i> <span class="hidden-xs text-uppercase">Sign in</span></a>
-                                    <a href="customer-register.html"><i class="fa fa-user"></i> <span class="hidden-xs text-uppercase">Sign up</span></a>
-                                </div>
-
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- *** TOP END *** -->
-
-                <!-- *** NAVBAR *** -->
-                <?= $this->render('navbar', ['path' => $path]) ?> 
-                <!-- *** NAVBAR END *** -->
-
-            </header>
-
-            <!-- *** LOGIN MODAL ***
-    _________________________________________________________ -->
-
-            <div class="modal fade" id="login-modal" tabindex="-1" role="dialog" aria-labelledby="Login" aria-hidden="true">
-                <div class="modal-dialog modal-sm">
-
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                            <h4 class="modal-title" id="Login">Customer login</h4>
-                        </div>
-                        <div class="modal-body">
-                            <form action="customer-orders.html" method="post">
-                                <div class="form-group">
-                                    <input type="text" class="form-control" id="email_modal" placeholder="email">
-                                </div>
-                                <div class="form-group">
-                                    <input type="password" class="form-control" id="password_modal" placeholder="password">
-                                </div>
-
-                                <p class="text-center">
-                                    <button class="btn btn-template-main"><i class="fa fa-sign-in"></i> Log in</button>
-                                </p>
-
-                            </form>
-
-                            <p class="text-center text-muted">Not registered yet?</p>
-                            <p class="text-center text-muted"><a href="customer-register.html"><strong>Register now</strong></a>! It is easy and done in 1&nbsp;minute and gives you access to special discounts and much more!</p>
-
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- *** LOGIN MODAL END *** -->
+            
 
 
             <div id="heading-breadcrumbs">
@@ -179,7 +110,8 @@ $path = $asset->baseUrl;
                     </section>
                     <?php endif;?>
 
-                    <?=$this->render('left-menu',['content'=>$content]);?>
+                    <?php /*=$this->render('left-menu',['content'=>$content]);*/?>
+                    <?=$this->render('contents',['content'=>$content]);?>
 
                 </div>
                 <!-- /#contact.container -->
