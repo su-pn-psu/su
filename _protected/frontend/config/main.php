@@ -19,15 +19,15 @@ return [
             ],
         ],
         // we are going to use bootstrap from out theme
-        'assetManager' => [
-            'bundles' => [
-                'yii\bootstrap\BootstrapAsset' => [
-                    'basePath' => '@webroot',
-                    'baseUrl' => '@themes',
-                    'css' => ['css/bootstrap.min.css']
-                ],
-            ],
-        ],
+//        'assetManager' => [
+//            'bundles' => [
+//                'yii\bootstrap\BootstrapAsset' => [
+//                    'basePath' => '@webroot',
+//                    'baseUrl' => '@themes',
+//                    'css' => ['css/bootstrap.min.css']
+//                ],
+//            ],
+//        ],
         'user' => [
             'identityClass' => 'suPnPsu\user\models\User',
             'enableAutoLogin' => true,

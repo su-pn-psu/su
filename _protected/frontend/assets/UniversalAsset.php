@@ -8,14 +8,8 @@
 namespace frontend\assets;
 
 use yii\web\AssetBundle;
-use Yii;
 
-/**
- * @author Qiang Xue <qiang.xue@gmail.com>
- * @author Nenad Zivkovic <nenad@freetuts.org>
- * 
- * @since 2.0
- */
+
 class UniversalAsset extends AssetBundle
 {
     public $basePath = '@webroot';
@@ -30,11 +24,17 @@ class UniversalAsset extends AssetBundle
     ];
 
     public $js = [
-        'js/jquery.js',
+        //'js/jquery-1.11.0.min.js',
+        'js/jquery.cookie.js',
+        'js/waypoints.min.js',
+        'js/jquery.counterup.min.js',
+        'js/jquery.parallax-1.1.3.js',
+        'js/front.js',
+        'js/owl.carousel.min.js',
     ];
 
     public $depends = [
-//        'yii\web\YiiAsset',
-//        'yii\bootstrap\BootstrapAsset',
+        'yii\web\YiiAsset',
+        'yii\bootstrap\BootstrapPluginAsset',
     ];
 }

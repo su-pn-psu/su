@@ -17,7 +17,7 @@ use suPnPsu\material\components\Navigate;
     <!-- /.col -->
     
 <!--    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-        <?=$this->render('_login')?>
+       
     </div>-->
 </div>
 

@@ -189,7 +189,7 @@ class SiteController extends Controller {
 
         // if user is not denied because he is not active, then his credentials are not good
         if ($successfulLogin === false) {
-            return $this->renderPartial('_login', ['model' => $model]);
+            return $this->renderAjax('_login', ['model' => $model]);
         }
 
         //exit();

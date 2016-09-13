@@ -8,5 +8,5 @@
 
 ?>
 
-<img src="<?=$user->avatar?>" />
+<img src="<?=$user->avatar?>" width="100%"/>
 
