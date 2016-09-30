@@ -3,6 +3,7 @@
 use frontend\assets\UniversalAsset;
 use frontend\widgets\Alert;
 use yii\helpers\Html;
+use yii\helpers\Url;
 //use yii\bootstrap\Nav;
 //use yii\bootstrap\NavBar;
 use yii\widgets\Breadcrumbs;
@@ -22,7 +23,7 @@ $path = $asset->baseUrl;
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <?= Html::csrfMetaTags() ?>
         <title><?= Html::encode($this->title) ?></title>
-        
+
 
         <meta name="robots" content="all,follow">
         <meta name="googlebot" content="index,follow,snippet,archive">
@@ -77,45 +78,65 @@ $path = $asset->baseUrl;
 
 
 
-            <div id="heading-breadcrumbs">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-md-7">
-                            <h1><?= $this->title ?></h1>
-                        </div>
-                        <div class="col-md-5">
 
-                            <?=
-                            Breadcrumbs::widget([
-                                'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],
-                            ])
-                            ?>
 
+
+            <?php if (Url::current() == (Url::home() . 'site/index')) { ?> 
+                <!--#main-slider-->
+                <?php /* =
+                  $this->render(
+                  'home', [
+                  'asset' => $asset,
+                  'content' => $content
+                  ]
+                  ) */
+                ?>
+                <?= $content ?>
+                <!--/#main-slider-->
+            <?php } else { ?>
+                
+                <div id="heading-breadcrumbs">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-7">
+                                <h1><?= $this->title ?></h1>
+                            </div>
+                            <div class="col-md-5">
+
+                                <?=
+                                Breadcrumbs::widget([
+                                    'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],
+                                ])
+                                ?>
+
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
 
-
-            <div id="content">
-                <div class="container">
-                    <?php if (Alert::widget()): ?>
-                        <section>
-                            <div class="row">
-                                <div class="col-md-12">                            
-                                    <?= Alert::widget() ?>
-
+                <div id="content">
+                    <div class="container">
+                        <?php if (Alert::widget()): ?>
+                            <section>
+                                <div class="row">
+                                    <div class="col-md-12">                            
+                                        <?= Alert::widget() ?>
+                                    </div>
                                 </div>
-                            </div>
-                        </section>
-                    <?php endif; ?>
+                            </section>
+                        <?php endif; ?>
 
-                    <?php /* =$this->render('left-menu',['content'=>$content]); */ ?>
-                    <?= $this->render('contents', ['content' => $content]); ?>
+                        <?php /* =$this->render('left-menu',['content'=>$content]); */ ?>
+                        <?= $this->render('contents', ['content' => $content]); ?>
 
-                </div>
-                <!-- /#contact.container -->
-            </div>
+                    </div>
+                    <!-- /#contact.container -->
+                </div> 
+            <?php } ?>
+
+
+
+
 
 
             <!-- *** FOOTER ***
@@ -289,10 +310,10 @@ $path = $asset->baseUrl;
 
 
 
-        
-        
+
+
         <!-- #### JAVASCRIPT FILES ### -->
-         <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
         <script>
             window.jQuery || document.write('<script src="<?= $path ?>/js/jquery-1.11.0.min.js"><\/script>')
         </script>

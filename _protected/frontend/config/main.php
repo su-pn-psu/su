@@ -6,11 +6,24 @@ $params = array_merge(
 
 return [
     'id' => 'app-frontend',
+    //'language' => 'th',
     'basePath' => dirname(__DIR__),
     'bootstrap' => ['log'],
     'controllerNamespace' => 'frontend\controllers',
     'modules' => require(__DIR__ . '/modules.php'),
     'components' => [
+        'formatter' => [
+            'class' => 'yii\i18n\Formatter',
+            'dateFormat' => 'php:j M Y',
+            'datetimeFormat' => 'php:j M Y H:i',
+            'timeFormat' => 'php:H:i',
+            'decimalSeparator' => ',',
+            'thousandSeparator' => ' ',
+            'defaultTimeZone' => 'Asia/Bangkok',
+        //'timeZone' => 'UTC',
+        //'timeZone' => 'UTC',
+        //'currencyCode' => 'EUR',
+        ],
         // you can set your theme here - template comes with: 'light' and 'dark'
         'view' => [
             'theme' => [
@@ -35,7 +48,7 @@ return [
         'log' => [
             'traceLevel' => YII_DEBUG ? 3 : 0,
             'targets' => [
-                [
+                    [
                     'class' => 'yii\log\FileTarget',
                     'levels' => ['error', 'warning'],
                 ],
@@ -43,6 +56,12 @@ return [
         ],
         'errorHandler' => [
             'errorAction' => 'site/error',
+        ],
+        'urlManager' => [
+            'rules' => [
+            //'/site/login' => '/user/auth/login',
+            //'/site/signup' => '/user/regist/signup' 
+            ]
         ],
     ],
     'as access' => [
@@ -52,7 +71,9 @@ return [
             'site/login',
             'site/error',
             'site/index',
-            'user/regist/signup'
+            'user/regist/signup',
+            'reserve-room/default/present',
+            'reserve-room/default/jsoncalendar',
         ]
     ],
     'params' => $params,

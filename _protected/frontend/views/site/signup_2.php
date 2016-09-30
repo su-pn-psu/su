@@ -44,7 +44,16 @@ $this->params['bodyClass'] = 'hold-transition register-page';
                     ],
                 ])->passwordInput(['placeholder' => $model->getAttributeLabel('password')])->label(false);
                 ?>
-                
+
+                <?=
+                $form->field($model, 'passwordConfirm', [
+                    'inputTemplate' => '{input}<span class="glyphicon glyphicon-log-in form-control-feedback"></span>',
+                    'options' => [
+                        'class' => 'form-group has-feedback'
+                    ],
+                ])->passwordInput(['placeholder' => $model->getAttributeLabel('passwordConfirm')])->label(false);
+                ?>
+ 
                 <?=
                 $form->field($model, 'email', [
                     'inputTemplate' => '{input}<span class="glyphicon glyphicon-envelope form-control-feedback"></span>',
@@ -54,14 +63,13 @@ $this->params['bodyClass'] = 'hold-transition register-page';
                 ])->textInput(['placeholder' => $model->getAttributeLabel('email')])->label(false);
                 ?>
 
-
                 <div class="row">
                     <div class="col-xs-8">
                         <?= $form->field($model, 'acceptLicence')->checkbox() ?>
                     </div>
                     <!-- /.col -->
                     <div class="col-xs-4">
-                        <?= Html::submitButton('ลงทะเบียน', ['class' => 'btn btn-primary btn-block btn-flat', 'name' => 'register-button']) ?>
+                        <?= Html::submitButton('Register', ['class' => 'btn btn-primary btn-block btn-flat', 'name' => 'register-button']) ?>
                     </div>
                     <!-- /.col -->
                 </div>
@@ -71,6 +79,8 @@ $this->params['bodyClass'] = 'hold-transition register-page';
                 <?php ActiveForm::end(); ?>
 
 
+
+                <a href="<?= Url::to(['auth/login']); ?>" class="text-center">I already have a membership</a>
             </div>
             <!-- /.form-box -->
         </div>

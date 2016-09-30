@@ -5,48 +5,67 @@
 
 use yii\helpers\Html;
 use yii\bootstrap\ActiveForm;
+use yii\helpers\Url;
 
-$this->title = Yii::t('app', 'Login');
+$this->title = Yii::t('app', 'ลงชื่อเข้าใช้');
 $this->params['breadcrumbs'][] = $this->title;
 ?>
-<div class="site-login">
 
-    <h1><?= Html::encode($this->title) ?></h1>
+<div class="row">
+    <div class="col-sm-4 col-sm-offset-4 well bs-component">
+        <div class="login-box">
+            <div class="login-logo">
+                <div class="row">
+                    <div class="col-xs-4 col-sm-4 ">
+                        <?=Html::img(Url::base() . "/uploads/psupassport.png", ['width' => '100%'])?>
+                    </div>
+                    <div class="col-xs-8 col-sm-8">
+                        <?= Html::tag('h4', Yii::t('app', 'ลงชื่อผู้เข้าด้วย PSU Passport'), ['class' => 'login-box-msg text-top', 'style' => 'padding:0px 0px 15px;']) ?>
+                    </div>
+                </div>
+            </div>
+            <!-- /.login-logo -->
+            <div class="login-box-body">
 
-    <div class="col-md-5 well bs-component">
+                <p class="login-box-msg">Sign in to start your session</p>
 
-        <p><?= Yii::t('app', 'Please fill out the following fields to login:') ?></p>
+                <?php $form = ActiveForm::begin(['id' => 'login-form']); ?>
 
-        <?php $form = ActiveForm::begin(['id' => 'login-form']); ?>
+                <?=
+                $form->field($model, 'username', [
+                    'inputTemplate' => '{input}<span class="glyphicon glyphicon-user form-control-feedback"></span>',
+                    'options' => [
+                        'class' => 'form-group has-feedback'
+                    ],
+                ])->textInput(['autofocus' => true, 'placeholder' => $model->getAttributeLabel('username')])->label(false)
+                ?>
 
-        <?php //-- use email or username field depending on model scenario --// ?>
-        <?php if ($model->scenario === 'lwe'): ?>
+                <?=
+                $form->field($model, 'password', [
+                    'inputTemplate' => '{input}<span class="glyphicon glyphicon-lock form-control-feedback"></span>',
+                    'options' => [
+                        'class' => 'form-group has-feedback'
+                    ],
+                ])->passwordInput(['placeholder' => $model->getAttributeLabel('password')])->label(false)
+                ?>
 
-            <?= $form->field($model, 'email')->input('email', 
-                ['placeholder' => Yii::t('app', 'Enter your e-mail'), 'autofocus' => true]) ?>
 
-        <?php else: ?>
+                <div class="row">
+                    <div class="col-xs-8">
+                        <?= $form->field($model, 'rememberMe')->checkbox() ?>
+                    </div>
+                    <!-- /.col -->
+                    <div class="col-xs-4">
+                        <?= Html::submitButton('Login', ['class' => 'btn btn-primary btn-block btn-flat', 'name' => 'login-button']) ?>
+                    </div>
+                    <!-- /.col -->
+                </div>                
 
-            <?= $form->field($model, 'username')->textInput(
-                ['placeholder' => Yii::t('app', 'Enter your username'), 'autofocus' => true]) ?>
+                <?php ActiveForm::end(); ?>
+                <a href="<?= Url::to(['site/signup']); ?>" class="text-center">ลงทะเบียนเข้าใช้ใหม่</a>
 
-        <?php endif ?>
-
-        <?= $form->field($model, 'password')->passwordInput(['placeholder' => Yii::t('app', 'Enter your password')]) ?>
-
-        <?= $form->field($model, 'rememberMe')->checkbox() ?>
-
-        <div style="color:#999;margin:1em 0">
-            <?= Yii::t('app', 'If you forgot your password you can') ?>
-            <?= Html::a(Yii::t('app', 'reset it'), ['site/request-password-reset']) ?>.
+            </div>
+            <!-- /.login-box-body -->
         </div>
-
-        <div class="form-group">
-            <?= Html::submitButton(Yii::t('app', 'Login'), ['class' => 'btn btn-primary', 'name' => 'login-button']) ?>
-        </div>
-
-        <?php ActiveForm::end(); ?>
-
     </div>
-  
 </div>

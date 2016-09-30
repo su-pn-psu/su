@@ -6,16 +6,19 @@
 use yii\helpers\Html;
 use yii\helpers\Url;
 use yii\bootstrap\ActiveForm;
+use suPnPsu\user\models\SignupForm;
 
 $this->title = Yii::t('app', 'ลงทะเบียน');
 $this->params['breadcrumbs'][] = $this->title;
 $this->params['bodyClass'] = 'hold-transition register-page';
+
+$model = new SignupForm();
 ?>
 <?php
 //echo $this->context->module->userUploadDir;
 ?>
 <div class="row">
-    <div class="col-sm-4 col-sm-offset-4">
+    <div class="col-sm-12">
         <div class="register-box">
             <div class="register-logo">
                 <b><?= $this->title ?></b>
@@ -23,13 +26,13 @@ $this->params['bodyClass'] = 'hold-transition register-page';
 
             <div class="register-box-body">
                 <p class="login-box-msg">Register a new membership</p>
-                <?php $form = ActiveForm::begin(['id' => 'form-signup']); ?>
+                <?php $form = ActiveForm::begin(['id' => 'form-signup','action'=> ['/site/signup']]); ?>
 
                 <?=
                 $form->field($model, 'username', [
                     'inputTemplate' => '{input}<span class="glyphicon glyphicon-user form-control-feedback"></span>',
                     'options' => [
-                        'class' => 'form-group has-feedback'
+                        'class' => 'form-group has-feedback'                        
                     ],
                 ])->textInput(['autofocus' => true, 'placeholder' => Yii::t('app', 'รหัสนักศึกษา')])->label(false);
                 ?>

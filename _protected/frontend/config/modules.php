@@ -7,19 +7,33 @@
  */
 
 return [
-   
-    'material' => [
-        //'class' => 'backend\modules\menu\Module',
-        'class' => 'suPnPsu\material\Module',
-    ],
-     'user' => [ //module id = 'user' only
+    'user' => [//module id = 'user' only
         'class' => 'suPnPsu\user\Module',
         'loginBy' => 'db', //db or ldap (ldap not work)
         'userUploadDir' => '@uploads', //Base uploads Directory
         'userUploadUrl' => '/uploads', //Url of userUploadDir
         'userUploadPath' => 'user', //path after upload directory
         'admins' => ['admin', 'root'], //list of username for manage users
-        'rbacUrl'=>['/rbac']
+        'rbacUrl' => ['/rbac']
     ],
-    
+    'borrow-material' => [
+        //'class' => 'backend\modules\menu\Module',
+        'class' => 'suPnPsu\borrowMaterial\Module',
+        'layout' => 'menu-left'
+    ],
+    'gridview' => [
+        'class' => '\kartik\grid\Module',
+    ],
+    'reserve-room' => [
+        'class' => 'suPnPsu\reserveRoom\Module',
+        'layout' => 'menu-left'
+    ],    
+    'vehicle' => [
+        'class' => 'suPnPsu\vehicle\Module',
+        'layout' => 'menu-left'
+    ],
+    'borrow-vehicle' => [
+        'class' => 'suPnPsu\borrowVehicle\Module',
+        'layout' => 'menu-left'
+    ],
 ];

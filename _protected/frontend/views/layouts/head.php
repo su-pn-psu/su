@@ -13,7 +13,7 @@
 
 <!-- *** LOGIN MODAL ***
 _________________________________________________________ -->
-
+<!--
 <div class="modal fade" id="login-modal" tabindex="-1" role="dialog" aria-labelledby="Login" aria-hidden="true">
     
     <div class="modal-dialog modal-sm">
@@ -46,4 +46,4 @@ _________________________________________________________ -->
             </div>
         </div>
     </div>
-</div>
+</div>-->

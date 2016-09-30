@@ -1,7 +1,7 @@
 <?php
+
 use yii\bootstrap\Nav;
-
-
+use yii\bootstrap\Html;
 
 //NavBar::begin([
 //    'brandLabel' => Yii::t('app', Yii::$app->name),
@@ -12,7 +12,6 @@ use yii\bootstrap\Nav;
 //        'data-offset-top'=>'200'
 //    ],
 //]);
-
 ?>
 
 <div class="navbar-affixed-top" data-spy="affix" data-offset-top="200">
@@ -36,38 +35,47 @@ use yii\bootstrap\Nav;
             <!--/.navbar-header -->
 
             <div class="navbar-collapse collapse" id="navigation">
-<?php
-
+                <?php
 // everyone can see Home page
-$menuItems[] = ['label' => Yii::t('app', 'Home'), 'url' => ['/site/index']];
+                $menuItems[] = ['label' => Yii::t('app', 'หน้าแรก'), 'url' => ['/site/index']];
 
 // we do not need to display Article/index, About and Contact pages to editor+ roles
-if (!Yii::$app->user->can('employee')) {
-    $menuItems[] = ['label' => Yii::t('app', 'About'), 'url' => ['/site/about']];
-    $menuItems[] = ['label' => Yii::t('app', 'Contact'), 'url' => ['/site/contact']];
-}
+                //if (!Yii::$app->user->can('user')) {
+                    $menuItems[] = [
+                        'label' => Html::icon('file').' '.Yii::t('app', 'ระบบยืมคืน'),
+                        'url' => ['#'],
+                        'items' => [
+                            [
+                                'label' => Yii::t('app', 'ระบบยืมคืนพัสดุ'),
+                                'url' => ['/borrow-material']
+                            ],
+                        ]
+                    ];
+                    //$menuItems[] = ['label' => Yii::t('app', 'Contact'), 'url' => ['/site/contact']];
+               // }
+                
+                 $menuItems[] = ['label' => Yii::t('app', 'เอกสารประกอบ'), 'url' => ['/site/docs']];
 
 // display Logout to logged in users
-if (!Yii::$app->user->isGuest) {
-    $menuItems[] = [
-        'label' => Yii::t('app', 'Logout') . ' (' . Yii::$app->user->identity->username . ')',
-        'url' => ['/site/logout'],
-        'linkOptions' => ['data-method' => 'post']
-    ];
-}
+//if (!Yii::$app->user->isGuest) {
+//    $menuItems[] = [
+//        'label' => Yii::t('app', 'Logout') . ' (' . Yii::$app->user->identity->username . ')',
+//        'url' => ['/site/logout'],
+//        'linkOptions' => ['data-method' => 'post']
+//    ];
+//}
+//// display Signup and Login pages to guests of the site
+//if (Yii::$app->user->isGuest) {    
+//    $menuItems[] = ['label' => Yii::t('app', 'Login'), 'url' => ['/site/login']];
+//}
 
-// display Signup and Login pages to guests of the site
-if (Yii::$app->user->isGuest) {
-    $menuItems[] = ['label' => Yii::t('app', 'Signup'), 'url' => ['/site/signup']];
-    $menuItems[] = ['label' => Yii::t('app', 'Login'), 'url' => ['/site/login']];
-}
-
-echo Nav::widget([
-    'options' => ['class' => 'nav navbar-nav navbar-right'],
-    'items' => $menuItems,
-]);
+                echo Nav::widget([
+                    'options' => ['class' => 'nav navbar-nav navbar-right'],
+                    'items' => $menuItems,
+                    'encodeLabels' => false,
+                ]);
 //NavBar::end();
-?>
+                ?>
                 <?php /*
                   <ul class="nav navbar-nav navbar-right">
                   <li class="dropdown active">

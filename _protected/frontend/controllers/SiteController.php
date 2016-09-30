@@ -3,11 +3,12 @@
 namespace frontend\controllers;
 
 use common\models\User;
-use common\models\LoginForm;
+//use common\models\LoginForm;
 use frontend\models\AccountActivation;
 use frontend\models\PasswordResetRequestForm;
 use frontend\models\ResetPasswordForm;
-use frontend\models\SignupForm;
+//use frontend\models\SignupForm;
+use suPnPsu\user\models\SignupForm;
 use frontend\models\ContactForm;
 use yii\helpers\Html;
 use yii\base\InvalidParamException;
@@ -16,6 +17,7 @@ use yii\web\Controller;
 use yii\filters\VerbFilter;
 use yii\filters\AccessControl;
 use Yii;
+use suPnPsu\user\models\LoginForm;
 
 /**
  * Site controller.
@@ -35,12 +37,12 @@ class SiteController extends Controller {
                 'class' => AccessControl::className(),
                 'only' => ['logout', 'signup'],
                 'rules' => [
-                    [
+                        [
                         'actions' => ['signup'],
                         'allow' => true,
                         'roles' => ['?'],
                     ],
-                    [
+                        [
                         'actions' => ['logout'],
                         'allow' => true,
                         'roles' => ['@'],
@@ -84,6 +86,8 @@ class SiteController extends Controller {
      * @return string
      */
     public function actionIndex() {
+        
+        
         return $this->render('index');
     }
 
@@ -128,45 +132,60 @@ class SiteController extends Controller {
      *
      * @return string|\yii\web\Response
      */
+    /*
+      public function actionLogin() {
+      // user is logged in, he doesn't need to login
+      if (!Yii::$app->user->isGuest) {
+      return $this->goHome();
+      }
+
+      // get setting value for 'Login With Email'
+      $lwe = Yii::$app->params['lwe'];
+
+      // if 'lwe' value is 'true' we instantiate LoginForm in 'lwe' scenario
+      $model = $lwe ? new LoginForm(['scenario' => 'lwe']) : new LoginForm();
+
+      // monitor login status
+      $successfulLogin = true;
+
+      // posting data or login has failed
+      if (!$model->load(Yii::$app->request->post()) || !$model->login()) {
+      $successfulLogin = false;
+      }
+
+      // if user's account is not activated, he will have to activate it first
+      if ($model->status === User::STATUS_INACTIVE && $successfulLogin === false) {
+      Yii::$app->session->setFlash('error', Yii::t('app', 'You have to activate your account first. Please check your email.'));
+      return $this->refresh();
+      }
+
+      // if user is not denied because he is not active, then his credentials are not good
+      if ($successfulLogin === false) {
+      return $this->render('login', ['model' => $model]);
+      }
+
+      // login was successful, let user go wherever he previously wanted
+      return $this->goBack();
+      }
+     */
     public function actionLogin() {
-        // user is logged in, he doesn't need to login
-        if (!Yii::$app->user->isGuest) {
+        if (!\Yii::$app->user->isGuest) {
             return $this->goHome();
         }
 
-        // get setting value for 'Login With Email'
-        $lwe = Yii::$app->params['lwe'];
-
-        // if 'lwe' value is 'true' we instantiate LoginForm in 'lwe' scenario
-        $model = $lwe ? new LoginForm(['scenario' => 'lwe']) : new LoginForm();
-
-        // monitor login status
-        $successfulLogin = true;
-
-        // posting data or login has failed
-        if (!$model->load(Yii::$app->request->post()) || !$model->login()) {
-            $successfulLogin = false;
+        $model = new LoginForm();
+        if ($model->load(Yii::$app->request->post()) && $model->login()) {
+            return $this->goBack();
+        } else {
+            //$this->layout = 'main';
+            return $this->render('login', [
+                        'model' => $model,
+            ]);
         }
-
-        // if user's account is not activated, he will have to activate it first
-        if ($model->status === User::STATUS_INACTIVE && $successfulLogin === false) {
-            Yii::$app->session->setFlash('error', Yii::t('app', 'You have to activate your account first. Please check your email.'));
-            return $this->refresh();
-        }
-
-        // if user is not denied because he is not active, then his credentials are not good
-        if ($successfulLogin === false) {
-            return $this->render('login', ['model' => $model]);
-        }
-
-        // login was successful, let user go wherever he previously wanted
-        return $this->goBack();
     }
-    
+
     public function actionFormLogin() {
         // user is logged in, he doesn't need to login
-        
-
         // get setting value for 'Login With Email'
         $lwe = Yii::$app->params['lwe'];
 
@@ -201,10 +220,10 @@ class SiteController extends Controller {
     }
 
     public function actionProfile() {
-        
-        if (!Yii::$app->user->isGuest) {            
-             return $this->renderPartial('_profile', ['user' => Yii::$app->user->identity->profile->resultInfo]);
-        }else{
+
+        if (!Yii::$app->user->isGuest) {
+            return $this->renderPartial('_profile', ['user' => Yii::$app->user->identity->profile->resultInfo]);
+        } else {
             return Yii::$app->runAction('/site/form-login');
         }
     }
@@ -283,46 +302,112 @@ class SiteController extends Controller {
      *
      * @return string|\yii\web\Response
      */
+    /*
+      public function actionSignup() {
+      // get setting value for 'Registration Needs Activation'
+      $rna = Yii::$app->params['rna'];
+
+      // if 'rna' value is 'true', we instantiate SignupForm in 'rna' scenario
+      $model = $rna ? new SignupForm(['scenario' => 'rna']) : new SignupForm();
+
+      // if validation didn't pass, reload the form to show errors
+      if (!$model->load(Yii::$app->request->post()) || !$model->validate()) {
+      return $this->render('signup', ['model' => $model]);
+      }
+
+      // try to save user data in database, if successful, the user object will be returned
+      $user = $model->signup();
+
+      if (!$user) {
+      // display error message to user
+      Yii::$app->session->setFlash('error', Yii::t('app', 'We couldn\'t sign you up, please contact us.'));
+      return $this->refresh();
+      }
+
+      // user is saved but activation is needed, use signupWithActivation()
+      if ($user->status === User::STATUS_INACTIVE) {
+      $this->signupWithActivation($model, $user);
+      return $this->refresh();
+      }
+
+      // now we will try to log user in
+      // if login fails we will display error message, else just redirect to home page
+
+      if (!Yii::$app->user->login($user)) {
+      // display error message to user
+      Yii::$app->session->setFlash('warning', Yii::t('app', 'Please try to log in.'));
+
+      // log this error, so we can debug possible problem easier.
+      Yii::error('Login after sign up failed! User ' . Html::encode($user->username) . ' could not log in.');
+      }
+
+      return $this->goHome();
+      }
+     */
+
     public function actionSignup() {
-        // get setting value for 'Registration Needs Activation'
-        $rna = Yii::$app->params['rna'];
+        //$this->layout = 'main-blank';
+        $model = new SignupForm();
+        //$model->scenario = 'signup';
+        if ($model->load(Yii::$app->request->post())) {
+            if ($data = $model->checkPsuPassport()) {
+                //return $this->goHome();
 
-        // if 'rna' value is 'true', we instantiate SignupForm in 'rna' scenario
-        $model = $rna ? new SignupForm(['scenario' => 'rna']) : new SignupForm();
-
-        // if validation didn't pass, reload the form to show errors
-        if (!$model->load(Yii::$app->request->post()) || !$model->validate()) {
-            return $this->render('signup', ['model' => $model]);
+                if ($data['status']) {
+                    if ($user = $model->signup()) {
+                        \suPnPsu\user\models\Profile::updateProfile($user->id, $data['info']);
+                        Yii::$app->session->set('confirm_id', $user->id);
+                        $this->redirect(['confirm']);
+                    } else {
+                        //echo $user['status'] ;
+//                        print_r($model->signup());
+//                        print_r($data);
+//                        print_r($model->getErrors());
+                    }
+                }
+            }
         }
 
-        // try to save user data in database, if successful, the user object will be returned
-        $user = $model->signup();
-
-        if (!$user) {
-            // display error message to user
-            Yii::$app->session->setFlash('error', Yii::t('app', 'We couldn\'t sign you up, please contact us.'));
-            return $this->refresh();
-        }
-
-        // user is saved but activation is needed, use signupWithActivation()
-        if ($user->status === User::STATUS_INACTIVE) {
-            $this->signupWithActivation($model, $user);
-            return $this->refresh();
-        }
-
-        // now we will try to log user in
-        // if login fails we will display error message, else just redirect to home page
-
-        if (!Yii::$app->user->login($user)) {
-            // display error message to user
-            Yii::$app->session->setFlash('warning', Yii::t('app', 'Please try to log in.'));
-
-            // log this error, so we can debug possible problem easier.
-            Yii::error('Login after sign up failed! User ' . Html::encode($user->username) . ' could not log in.');
-        }
-
-        return $this->goHome();
+        return $this->render('signup', [
+                    'model' => $model,
+        ]);
     }
+    
+    public function actionConfirm() {
+
+        $saved = false;
+        $session = Yii::$app->session;
+        
+        if ($session->has('confirm_id')) {
+            $id = Yii::$app->session->get('confirm_id');
+
+            $user = \suPnPsu\user\models\User::findOne($id);
+            $profile = $user->profile;
+            
+            $person = $user->person?$user->person:new \suPnPsu\user\models\Person();
+            //$modelProfile = $model->pe;
+            if ($profile->load(Yii::$app->request->post())) {
+                $person->load(Yii::$app->request->post());
+                
+                $person->user_id =$user->id;
+                $profile->save(false);
+                $person->save(false); 
+                $saved=true;
+                //Yii::$app->session->setFlash('sussess','บันทึกแล้ว');
+                $session->remove('confirm_id');
+                //return $this->goHome();
+            }
+            return $this->render('confirm', [
+                        'user' => $user,
+                        'profile' => $profile,
+                        'person' => $person,
+                        'saved' => $saved
+            ]);
+        } else {
+            return $this->goBack();
+        }
+    }
+    
 
     /**
      * Tries to send account activation email.
@@ -376,5 +461,7 @@ class SiteController extends Controller {
 
         return $this->redirect(['login']);
     }
+
+    
 
 }
