@@ -95,8 +95,6 @@ $this->title = Yii::$app->name;
     </section>
 
 
-?>
-
 <?php
 else:
     $user = Yii::$app->user->identity->profile->resultInfo;
@@ -163,5 +161,5 @@ else:
 
     </section>
 <?php endif; ?>
+
 <?=Yii::$app->runAction('/reserve-room/default/present')?>
-<?php /*=$this->render('_calendar_room')*/?>
