@@ -33,4 +33,4 @@ phpunit.phar
 /_protected/frontend/runtime/
 /_protected/backend/runtime/
 
-/uploads/
+#/uploads/
