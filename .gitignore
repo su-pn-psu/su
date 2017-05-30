@@ -27,7 +27,7 @@ phpunit.phar
 /phpunit.xml
 
 # composer vendor dir
-#/_protected/vendor
+/_protected/vendor
 
 # runtime dir
 /_protected/frontend/runtime/

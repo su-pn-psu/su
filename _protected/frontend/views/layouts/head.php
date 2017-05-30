@@ -1,4 +1,4 @@
-<header>
+<header class="hidden-print">
 
     <!-- *** TOP ***_____________________________ -->
     <?= $this->render('top', ['path' => $path]) ?> 

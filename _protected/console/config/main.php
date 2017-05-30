@@ -20,6 +20,15 @@ return [
                 ],
             ],
         ],
+        'i18n' => [
+            'translations' => [
+                'borrow-material*' => [
+                    'class' => 'yii\i18n\PhpMessageSource',
+                    'basePath' => '@vendor/su-pn-psu/yii2-borrow-material/messages',
+                ],
+            ],
+            'on missingTranslation' => ['app\components\TranslationEventHandler', 'handleMissingTranslation'],
+        ],
     ],
     'params' => $params,
 ];

@@ -1,0 +1,57 @@
+{
+    "name": "nenad/yii2-advanced-template",
+    "description": "Improved Yii 2 Advanced Application Template By Nenad Zivkovic",
+    "keywords": ["yii2", "framework", "advanced", "improved", "application template", "nenad"],
+    "type": "project",
+    "license": "BSD-3-Clause",
+    "support": {
+        "tutorial": "http://www.freetuts.org/tutorial/view?id=6",
+        "source": "https://github.com/nenad-zivkovic/yii2-advanced-template"
+    },
+    "minimum-stability": "dev",
+    "require": {
+        "php": ">=5.4.0",
+        "yiisoft/yii2": "*",
+        "yiisoft/yii2-bootstrap": "*",
+        "yiisoft/yii2-swiftmailer": "*",
+        "kartik-v/yii2-password": "@dev",
+        "dmstr/yii2-adminlte-asset": "2.*",
+        "mdmsoft/yii2-admin": "~2.0",
+        "kartik-v/yii2-widgets": "*",
+        "yurkinx/yii2-image": "dev-master",        
+        "kartik-v/yii2-widget-activeform": "@dev",
+        "dixonsatit/yii2-thai-year-formatter": "*",
+        "su-pn-psu/yii2-core": "dev-master",
+        "firdows/yii2-menu": "*",
+        "su-pn-psu/yii2-material": "dev-master",
+        "su-pn-psu/yii2-user": "dev-master",
+        "su-pn-psu/yii2-borrow-material": "dev-master",
+        "su-pn-psu/yii2-room": "dev-master",
+        "su-pn-psu/yii2-reserve-room": "dev-master",
+        "yiisoft/yii2-jui": "*",
+        "philippfrenzel/yii2fullcalendar": "*",
+        "kartik-v/yii2-widget-colorinput": "*",
+        "wowkaster/yii2-serialize-attributes": "dev-master",
+        "su-pn-psu/yii2-vehicle": "dev-master",
+        "su-pn-psu/yii2-borrow-vehicle": "dev-master",
+        "kartik-v/yii2-field-range": "dev-master"
+    },
+    "require-dev": {
+        "yiisoft/yii2-codeception": "*",
+        "yiisoft/yii2-debug": "*",
+        "yiisoft/yii2-gii": "*",
+        "yiisoft/yii2-faker": "*",
+        "codeception/specify": "*",
+        "codeception/verify": "*"
+    },
+    "config": {
+        "vendor-dir": "_protected/vendor",
+        "process-timeout": 1800
+    },
+    "extra": {
+        "asset-installer-paths": {
+            "npm-asset-library": "_protected/vendor/npm",
+            "bower-asset-library": "_protected/vendor/bower"
+        }
+    }
+}

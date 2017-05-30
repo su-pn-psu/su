@@ -12,7 +12,7 @@ return [
         ],
         'urlManager' => [
             'class' => 'yii\web\UrlManager',
-            'enablePrettyUrl' => true,
+            'enablePrettyUrl' => false,
             'showScriptName' => false,
         ],
         'session' => [
@@ -52,6 +52,6 @@ return [
         //'timeZone' => 'UTC',
         //'currencyCode' => 'EUR',
         ],
-        
+
     ], // components
 ];

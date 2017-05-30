@@ -86,8 +86,8 @@ class SiteController extends Controller {
      * @return string
      */
     public function actionIndex() {
-        
-        
+
+
         return $this->render('index');
     }
 
@@ -372,27 +372,27 @@ class SiteController extends Controller {
                     'model' => $model,
         ]);
     }
-    
+
     public function actionConfirm() {
 
         $saved = false;
         $session = Yii::$app->session;
-        
+
         if ($session->has('confirm_id')) {
             $id = Yii::$app->session->get('confirm_id');
 
             $user = \suPnPsu\user\models\User::findOne($id);
             $profile = $user->profile;
-            
-            $person = $user->person?$user->person:new \suPnPsu\user\models\Person();
+
+            $person = $user->person ? $user->person : new \suPnPsu\user\models\Person();
             //$modelProfile = $model->pe;
             if ($profile->load(Yii::$app->request->post())) {
                 $person->load(Yii::$app->request->post());
-                
-                $person->user_id =$user->id;
+
+                $person->user_id = $user->id;
                 $profile->save(false);
-                $person->save(false); 
-                $saved=true;
+                $person->save(false);
+                $saved = true;
                 //Yii::$app->session->setFlash('sussess','บันทึกแล้ว');
                 $session->remove('confirm_id');
                 //return $this->goHome();
@@ -407,7 +407,6 @@ class SiteController extends Controller {
             return $this->goBack();
         }
     }
-    
 
     /**
      * Tries to send account activation email.
@@ -462,6 +461,50 @@ class SiteController extends Controller {
         return $this->redirect(['login']);
     }
 
-    
+    public function actionDocs($page = null, $ext = null) {
+        $this->layout = 'layout_docs';
+
+        //return $this->render('docs',['page'=>$page]);
+
+        switch ($ext) {
+            case 'material' :
+                $path = "@suPnPsu/borrowMaterial/";
+                $title = 'การใช้งานระบบยืม-คืนพัสดุ';
+                break;
+
+            case 'room' :
+                $path = "@suPnPsu/reserveRoom/";
+                $title = 'การใช้งานระบบขอใช้ห้อง';
+                break;
+
+            case 'vehicle' :
+                $path = "@vendor/su-pn-psu/yii2-borrow-vehicle/";
+                $title = 'การใช้งานระบบขอใช้รถจักรยานยนตร์';
+                break;
+
+            default:
+                $path = "@suPnPsu/core/";
+                $title = 'แนะนำการใช้งานระบบ';
+                break;
+        }
+
+
+
+        if (strpos($page, '.png') !== false) {
+            $file = Yii::getAlias($path . $page);
+            return Yii::$app->getResponse()->sendFile($file);
+        }
+
+        if ($page == null) {
+            $page = 'docs/guide/basic-usage.md';
+        }
+
+        return $this->render('docs', [
+                    'page' => $page,
+                    'ext' => $ext,
+                    'path' => $path,
+                    'title' => $title
+        ]);
+    }
 
 }

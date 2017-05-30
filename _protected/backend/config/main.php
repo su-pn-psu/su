@@ -16,7 +16,7 @@ return [
             'theme' => [
                 'pathMap' => ['@backend/views' => '@backend/themes/adminlte/views'],
                 'baseUrl' => '@web/themes/adminlte',
-                
+
             ],
         ],
         'assetManager' => [
@@ -56,7 +56,7 @@ return [
             'class' => 'common\components\Notifications'
         ],
         'urlManager' => [
-            'enablePrettyUrl' => true,
+            'enablePrettyUrl' => false,
             'showScriptName' => false,
         ],
         'urlManagerFrontend' => [
@@ -73,7 +73,7 @@ return [
             'site/logout',
             'site/login',
             'site/error',
-        'gii/*',
+        //'gii/*',
         'rbac/*',
             'site/index',
             'user/regist/signup'

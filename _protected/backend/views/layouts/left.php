@@ -65,26 +65,9 @@ use mdm\admin\components\Helper;
         $menuItems = [];
         $menuItems = [
             [
-                'icon' => 'fa fa-play',
-                'label' =>  Yii::t('borrow-material', 'ระบบยืมพัสดุ'),
-                'url' => ['/borrow-material/default'],
-                'items' =>[
-                    [
-                        'icon' => 'fa fa-file',
-                        'label' => Yii::t('borrow-material', 'รายการรออนุมัติ'),
-                        'url' => ['/borrow-material/brwretrn/submitedlist'],
-                    ],
-                    [
-                        'icon' => 'fa fa-file',
-                        'label' => Yii::t('borrow-material', 'รายการส่งมอบ&รับคืน'),
-                        'url' => ['/borrow-material/brwretrn/approvedlist'],
-                    ],
-                ]
-            ],
-            [
-                'icon' => 'fa fa-building',
-                'label' => Yii::t('borrow-material', 'ระบบขอใช้ห้อง'),
-                'url' => ['/reserve-room'],
+                'icon' => 'fa fa-cube',
+                'label' =>  Yii::t('borrow-material', 'ระบบยืมพัสด/ครุภัณฑ์'),
+                'url' => ['/borrow-material/staff/'],
 //                'items' =>[
 //                    [
 //                        'icon' => 'fa fa-file',
@@ -99,21 +82,38 @@ use mdm\admin\components\Helper;
 //                ]
             ],
             [
-                'icon' => 'fa fa-play',
+                'icon' => 'fa fa-building',
+                'label' => Yii::t('borrow-material', 'ระบบขอใช้ห้อง'),
+                'url' => ['/reserve-room/staff/'],
+//                'items' =>[
+//                    [
+//                        'icon' => 'fa fa-file',
+//                        'label' => Yii::t('borrow-material', 'รายการรออนุมัติ'),
+//                        'url' => ['/borrow-material/brwretrn/submitedlist'],
+//                    ],
+//                    [
+//                        'icon' => 'fa fa-file',
+//                        'label' => Yii::t('borrow-material', 'รายการส่งมอบ&รับคืน'),
+//                        'url' => ['/borrow-material/brwretrn/approvedlist'],
+//                    ],
+//                ]
+            ],
+            [
+                'icon' => 'fa fa-motorcycle',
                 'label' => Yii::t('borrow-material', 'ระบบยืมรถ'),
-                'url' => ['/borrow-material/default'],
-                'items' =>[
-                    [
-                        'icon' => 'fa fa-file',
-                        'label' => Yii::t('borrow-material', 'รายการรออนุมัติ'),
-                        'url' => ['/borrow-material/brwretrn/submitedlist'],
-                    ],
-                    [
-                        'icon' => 'fa fa-file',
-                        'label' => Yii::t('borrow-material', 'รายการส่งมอบ&รับคืน'),
-                        'url' => ['/borrow-material/brwretrn/approvedlist'],
-                    ],
-                ]
+                'url' => ['/borrow-vehicle/staff/'],
+//                'items' =>[
+//                    [
+//                        'icon' => 'fa fa-file',
+//                        'label' => Yii::t('borrow-material', 'รายการรออนุมัติ'),
+//                        'url' => ['/borrow-material/brwretrn/submitedlist'],
+//                    ],
+//                    [
+//                        'icon' => 'fa fa-file',
+//                        'label' => Yii::t('borrow-material', 'รายการส่งมอบ&รับคืน'),
+//                        'url' => ['/borrow-material/brwretrn/approvedlist'],
+//                    ],
+//                ]
             ],
             
             [
@@ -129,12 +129,12 @@ use mdm\admin\components\Helper;
                     [
                         'icon' => 'fa fa-building',
                         'label' => Yii::t('borrow-material', 'ห้องประชุม'),
-                        'url' => ['/borrow-material/default'],
+                        'url' => ['/room/'],
                     ],
                     [
                         'icon' => 'fa fa-motorcycle',
                         'label' => Yii::t('borrow-material', 'รถจักรยานยนต์สามล้อ'),
-                        'url' => ['/borrow-material/default'],
+                        'url' => ['/vehicle/'],
                     ],
                 ]
             ],
@@ -146,12 +146,12 @@ use mdm\admin\components\Helper;
                     [
                         'icon' => 'fa fa-university',
                         'label' => Yii::t('borrow-material', 'สังกัดองค์กร'),
-                        'url' => ['/borrow-material/staff/org-index'],
+                        'url' => ['/borrow-material/stdbelongto/'],
                     ],
                     [
                         'icon' => 'fa fa-sitemap',
                         'label' => Yii::t('borrow-material', 'ตำแหน่งในองค์กร'),
-                        'url' => ['/borrow-material/staff/orgpos-index'],
+                        'url' => ['/borrow-material/stdpos/'],
                     ],
                 ]
             ],
@@ -159,19 +159,19 @@ use mdm\admin\components\Helper;
             [
                 'icon'=> 'fa fa-bar-chart',
                 'label' => Yii::t('app', 'รายงานสรุป'),
-                'url' => ['/summary'],
+                'url' => ['/summary/'],
             ],
             
             
             [
                 'icon'=> 'fa fa-users',
                 'label' => Yii::t('app', 'จัดการผู้ใช้'),
-                'url' => ['/user/admin'],
+                'url' => ['/user/student/'],
             ],
             
             
             [
-                'icon'=> 'fa fa-users',
+                'icon'=> 'fa fa-key',
                 'label' => Yii::t('app', 'จัดการสิทธิ์'),
                 'url' => ['/rbac'],
             ],

@@ -2,9 +2,9 @@
 
 use yii\bootstrap\Html;
 use yii\bootstrap\Dropdown;
-
 use yii\helpers\Url;
 use mdm\admin\components\Helper;
+
 /* @var $this \yii\web\View */
 /* @var $content string */
 ?>
@@ -23,77 +23,11 @@ use mdm\admin\components\Helper;
 
             <ul class="nav navbar-nav">
 
-                <li class="dropdown">
-                    <a href="#" data-toggle="dropdown" class="dropdown-toggle"><?php echo Html::Icon('check').' '.Yii::t( 'app', 'approvingmenu')
-                        .' '.(1 ? Html::tag('span', '3', ['class' => 'badge']) : false) ?><b class="caret"></b></a>
-                    <?php
-                    echo Dropdown::widget([
-                        'items' => [
-                            //['label' => Html::Icon('scissors').' '.Yii::t( 'app', 'equipment'), 'url' => ['wru/create']],
-                            ['label' => Html::Icon('scissors').' '.Yii::t( 'app', 'equipment')],
-                            ['label' => Html::Icon('menu-right').' '.Yii::t( 'app', 'approving'), 'url' => ['/borrow-material/brwretrn/submitedlist']],
-                            ['label' => Html::Icon('menu-right').' '.Yii::t( 'app', 'delevering & returning'), 'url' => ['/borrow-material/brwretrn/approvedlist']],
-                            '<li class="divider"></li>',
-                            //['label' => Html::Icon('map-marker').' '.Yii::t( 'app', 'meetingroom'), 'url' => ['wru/create']],
-                            ['label' => Html::Icon('scissors').' '.Yii::t( 'app', 'meetingroom')],
-                            ['label' => Html::Icon('menu-right').' '.Yii::t( 'app', 'approving'), 'url' => ['/borrowreturn/wru/create']],
-                            ['label' => Html::Icon('menu-right').' '.Yii::t( 'app', 'delevering & returning'), 'url' => ['/borrowreturn/wru']],
-                            '<li class="divider"></li>',
-                            //['label' => Html::Icon('transfer').' '.Yii::t( 'app', 'tricycle'), 'url' => ['wru/create']],
-                            ['label' => Html::Icon('scissors').' '.Yii::t( 'app', 'tricycle')],
-                            ['label' => Html::Icon('menu-right').' '.Yii::t( 'app', 'approving'), 'url' => ['/borrowreturn/wru/create']],
-                            ['label' => Html::Icon('menu-right').' '.Yii::t( 'app', 'delevering & returning'), 'url' => ['/borrowreturn/wru']],
-                            //'<li class="divider"></li>',
-                        ],
-                        'encodeLabels' => false,
-                    ]);
-                    ?>
-                </li>
-               <!-- <li class="dropdown">
-                    <a href="#" data-toggle="dropdown" class="dropdown-toggle"><?php echo Html::Icon('tasks').' '.Yii::t('app', 'manage') ?><b class="caret"></b></a>
-                    <?php
-//                    echo Dropdown::widget([
-//                        'items' => [
-//                            ['label' => Html::Icon('user').' '.Yii::t( 'app', 'wasterecycleUser')],
-//                            ['label' => Html::Icon('menu-right').' '.Yii::t( 'app', 'add'), 'url' => ['/borrowreturn/wru/create']],
-//                            ['label' => Html::Icon('menu-right').' '.Yii::t( 'app', 'index'), 'url' => ['/borrowreturn/wru']],
-//                            '<li class="divider"></li>',
-//                            ['label' => Html::Icon('sort-by-alphabet').' '.Yii::t( 'app', 'wasterecycleType')],
-//                            ['label' => Html::Icon('menu-right').' '.Yii::t( 'app', 'add'), 'url' => ['/borrowreturn/wrt/create']],
-//                            ['label' => Html::Icon('menu-right').' '.Yii::t( 'app', 'index'), 'url' => ['/borrowreturn/wrt']],
-//                            '<li class="divider"></li>',
-//                            ['label' => Html::Icon('play').' '.Yii::t( 'app', 'wasterecycleEntry')],
-//                            ['label' => Html::Icon('menu-right').' '.Yii::t( 'app', 'add'), 'url' => ['/borrowreturn/wre/create']],
-//                            ['label' => Html::Icon('menu-right').' '.Yii::t( 'app', 'index'), 'url' => ['/borrowreturn/wre']],
-//                            '<li class="divider"></li>',
-//                            ['label' => Html::Icon('forward').' '.Yii::t( 'app', 'wasterecycleDetail')],
-//                            ['label' => Html::Icon('menu-right').' '.Yii::t( 'app', 'add'), 'url' => ['/borrowreturn/wrd/create']],
-//                            ['label' => Html::Icon('menu-right').' '.Yii::t( 'app', 'index'), 'url' => ['/borrowreturn/wrd']],
-//
-//                        ],
-//                        'encodeLabels' => false,
-//                    ]);
-                    ?>
-                </li> -->
-<?php
-$menuItems = [
-    //['label' => Html::Icon('stats').' '.Yii::t('app', 'summery'), 'url' => ['default/summary']],
-    ['label' => Html::Icon('question-sign').' '.Yii::t('app', 'คำแนะนำการใช้งาน'), 'url' => ['default/summary']],
-];
-$menuItems = Helper::filter($menuItems);
-echo dmstr\widgets\Menu::widget([
-    'options' => ['class' => 'nav navbar-nav'],
-    'encodeLabels' => false,
-    //'linkTemplate' =>'<a href="{url}">{icon} {label} {badge}</a>',
-    'items' => $menuItems,
-])
-?>
-               
-               
-               
-               
-                <?=$this->render('_notificationUserRegis')?>
                 
+                <?= $this->render('_notificationUserRegis') ?>
+                
+                <?= $this->render('_notificationRoomRequest') ?>
+
                 <!-- User Account: style can be found in dropdown.less -->
                 <li class="dropdown notifications-menu">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">
@@ -102,7 +36,7 @@ echo dmstr\widgets\Menu::widget([
                     </a>
 
                     <ul class="dropdown-menu">
-                        <?php if (Yii::$app->notification->count()): ?>
+<?php if (Yii::$app->notification->count()): ?>
                             <li class="header">You have <?= Yii::$app->notification->count() ?> notifications</li><?php endif; ?>
                         <li>
                             <!-- inner menu: contains the actual data -->
@@ -135,7 +69,7 @@ echo dmstr\widgets\Menu::widget([
 
                                         </a>
                                     </li>
-                                <?php endforeach; ?>
+<?php endforeach; ?>
                             </ul>
                         </li>
 
@@ -144,8 +78,8 @@ echo dmstr\widgets\Menu::widget([
                 </li>
 
                 <li>
-                    <?=Html::a('<i class="fa fa-home"></i>',Yii::$app->urlManagerFrontend->createUrl(['/site']))?>
-                   
+<?= Html::a('<i class="fa fa-home"></i>', Yii::$app->urlManagerFrontend->createUrl(['/site'])) ?>
+
                 </li>
 
                 <li class="dropdown user user-menu">
@@ -166,9 +100,9 @@ echo dmstr\widgets\Menu::widget([
 
 
                             <p style="background:#fff;color:#000;opacity: 0.6;padding: 10px 0 5px;"> 
-                                <?= $user->fullname ?>
+<?= $user->fullname ?>
                                 <small>Member since Nov. 2012</small>
-                                
+
                             </p>
                         </li>
                         <!-- Menu Body -->
@@ -186,7 +120,7 @@ echo dmstr\widgets\Menu::widget([
                         <!-- Menu Footer-->
                         <li class="user-footer">
                             <div class="pull-left">
-                                <a href="<?= Url::to(['/user']) ?>" class="btn btn-default btn-flat">Profile</a>
+                                <a href="<?= Url::to(['/account']) ?>" class="btn btn-default btn-flat">Profile</a>
                             </div>
                             <div class="pull-right">
                                 <?=

@@ -33,8 +33,7 @@ $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
                                 ],
                                 'clientOptions' => [
                                     'selectable' => false,
-                                    'selectHelper' => false,
-                                    'draggable' => false,
+                                                                   'draggable' => false,
                                     'editable' => false,
                                     'timeFormat' => 'H(:mm)'
                                 ],
@@ -67,7 +66,7 @@ $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
                                 [
                                 'attribute' => 'room_id',
                                 //    'format'=>'html',
-                                'filter' => Room::getList(),
+                                //'filter' => RoomReserve::getItemStatus(),
                                 'value' => 'room.title'
                             ],
                             'subject',
@@ -85,4 +84,5 @@ $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
 
         </section>  
     </div>    
+</div>        
 </div>    

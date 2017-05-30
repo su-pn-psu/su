@@ -21,6 +21,7 @@ class UniversalAsset extends AssetBundle
         'css/custom.css',
         'css/owl.carousel.css',
         'css/owl.theme.css',
+        ['css/site_print.css','media'=>'print'],
     ];
 
     public $js = [

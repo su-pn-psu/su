@@ -20,6 +20,10 @@ return [
             ]
         ],
     ],
+    'account' => [
+        'class' => 'suPnPsu\account\Module',
+        'layout' => 'menu-left'
+    ],
     'user' => [//module id = 'user' only
         'class' => 'suPnPsu\user\Module',
         'loginBy' => 'db', //db or ldap (ldap not work)
@@ -65,7 +69,9 @@ return [
     ],
     'reserve-room' => [
         'class' => 'suPnPsu\reserveRoom\Module',
-        'layout' => 'menu-left-backend'
+        'layout' => 'menu-left-backend',
+        'uploadDir' => '@uploads', //Base uploads Directory
+        'uploadUrl' => '/uploads', //Url of userUploadDir
     ],
     
     'vehicle' => [

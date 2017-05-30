@@ -225,7 +225,7 @@ Thanks :)*/
 }
 #per-item{
     float:left; 
-    //border-top:1px solid #fff;	
+    /*border-top:1px solid #fff*/
     border-left:1px solid #fff;	
     border-right:1px solid #666;	
     border-bottom:1px solid #666;	
@@ -338,4 +338,12 @@ a#a-per:hover #per-item{
 .table-borderless td,
 .table-borderless th {
     border: 0 !important;
+}
+
+
+/*********************/
+.text-underline{
+/*    text-decoration: dotted;*/
+    padding: 0 5px 2px;
+    border-bottom: 1px dashed #000;
 }

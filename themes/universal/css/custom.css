@@ -1,1 +1,85 @@
 /* your styles go here */
+
+.text-underline{
+/*    text-decoration: dotted;*/
+    padding: 0 5px 2px;
+    border-bottom: 1px dashed #000;
+}
+
+.owl-carousel .item img{
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+.name-picture {
+/*    float: left;*/
+    width: 80%;
+    text-align: left;
+}
+
+.name-picture .avatar {
+    float: left;
+    width: 60px;
+    height: 60px;    
+    border-radius: 30px;
+    margin:0 10px 0 0;
+    overflow: hidden;
+}
+.name-picture .avatar img {   
+    width: 100%;    
+}
+.name-picture h5 {
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+}
+.name-picture p {
+    color: #999999;
+    margin: 0;
+    font-size: 12px;
+}
+/* avatar */
+.avatar {
+    float: left;
+    width: 80px;
+    height: 80px;   
+    border-radius: 50px;
+    margin:0 0px 0 0;
+    overflow: hidden;
+}
+.avatar img {   
+    width: 100%;    
+}
+
+.avatar.s60 {
+    width: 60px;
+    height: 60px; 
+    border-radius: 30px;
+    margin:0 10px 0 0;
+}
+.avatar.s30 {
+    width: 30px;
+    height: 30px;    
+    border-radius: 20px;
+    margin:0 8px 0 0;
+}
+
+.user-block img {
+    width: 40px;
+    height: 40px;
+    float: left;
+}
+.user-block .username {
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.user-block .description {
+    color: #999;
+    font-size: 13px;
+}
+.user-block .username, .user-block .description, .user-block .comment {
+    display: block;
+    margin-left: 50px;
+}

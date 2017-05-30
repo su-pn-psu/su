@@ -44,7 +44,7 @@ $this->params['bodyClass'] = 'hold-transition register-page';
                     ],
                 ])->passwordInput(['placeholder' => $model->getAttributeLabel('password')])->label(false);
                 ?>
-                
+
                 <?=
                 $form->field($model, 'email', [
                     'inputTemplate' => '{input}<span class="glyphicon glyphicon-envelope form-control-feedback"></span>',

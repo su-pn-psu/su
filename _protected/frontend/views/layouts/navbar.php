@@ -2,6 +2,7 @@
 
 use yii\bootstrap\Nav;
 use yii\bootstrap\Html;
+use yii\helpers\Url;
 
 //NavBar::begin([
 //    'brandLabel' => Yii::t('app', Yii::$app->name),
@@ -14,14 +15,14 @@ use yii\bootstrap\Html;
 //]);
 ?>
 
-<div class="navbar-affixed-top" data-spy="affix" data-offset-top="200">
+<!--<div class="navbar-affixed-top" data-spy="affix" data-offset-top="200">-->
 
     <div class="navbar navbar-default yamm" role="navigation" id="navbar">
 
         <div class="container">
             <div class="navbar-header">
 
-                <a class="navbar-brand home" href="index.html">
+                <a class="navbar-brand home" href="<?=Url::to(['/'])?>">
                     <img src="<?= $path ?>/img/logo.png" alt="Universal logo" class="hidden-xs hidden-sm">
                     <img src="<?= $path ?>/img/logo-small.png" alt="Universal logo" class="visible-xs visible-sm"><span class="sr-only">Universal - go to homepage</span>
                 </a>
@@ -37,24 +38,52 @@ use yii\bootstrap\Html;
             <div class="navbar-collapse collapse" id="navigation">
                 <?php
 // everyone can see Home page
-                $menuItems[] = ['label' => Yii::t('app', 'หน้าแรก'), 'url' => ['/site/index']];
+                $menuItems[] = ['label' => Html::icon('home') . ' ' . Yii::t('app', 'หน้าแรก'), 'url' => ['/site/index']];
 
 // we do not need to display Article/index, About and Contact pages to editor+ roles
                 //if (!Yii::$app->user->can('user')) {
-                    $menuItems[] = [
-                        'label' => Html::icon('file').' '.Yii::t('app', 'ระบบยืมคืน'),
-                        'url' => ['#'],
-                        'items' => [
-                            [
-                                'label' => Yii::t('app', 'ระบบยืมคืนพัสดุ'),
-                                'url' => ['/borrow-material']
-                            ],
-                        ]
-                    ];
-                    //$menuItems[] = ['label' => Yii::t('app', 'Contact'), 'url' => ['/site/contact']];
-               // }
+                                
                 
-                 $menuItems[] = ['label' => Yii::t('app', 'เอกสารประกอบ'), 'url' => ['/site/docs']];
+/*
+                $menuItems[] = [
+                    'label' => Yii::t('app', 'ระบบยืมคืน'),
+                    'url' => ['#'],
+                    'items' => [
+                            [
+                            'label' => Html::icon('scissors') . ' ' . Yii::t('app', 'พัสด/ครุภัณฑ์ุ'),
+                            'url' => ['/borrow-material']
+                        ],
+                            [
+                            'label' => Html::icon('map-marker') . ' ' . Yii::t('app', 'ห้องประชุม'),
+                            'url' => ['/reserve-room']
+                        ],
+                            [
+                            'label' => Html::icon('transfer') . ' ' . Yii::t('app', 'จักรยานยนต์สามล้อ'),
+                            'url' => ['/borrow-vehicle']
+                        ],
+                    ]
+                ];
+ */
+                  $menuItems[] = [
+                  'label' => '<i class="fa fa-cube"></i> ' . Yii::t('app', 'ยืมคืนพัสดุ/ครุภัณฑ์'),
+                  'url' => ['/borrow-material']
+                  ];
+                  $menuItems[] = [
+                  'label' => '<i class="fa fa-building"></i> ' . Yii::t('app', 'ขอใช้ห้องประชุม'),
+                  'url' => ['/reserve-room']
+                  ];
+                  $menuItems[] = [
+                  'label' => '<i class="fa fa-motorcycle"></i> ' . Yii::t('app', 'ขอใช้รถจักรยานยนต์'),
+                  'url' => ['/borrow-vehicle']
+                  ];
+                 
+                 
+
+
+                //$menuItems[] = ['label' => Yii::t('app', 'Contact'), 'url' => ['/site/contact']];
+                // }
+
+                $menuItems[] = ['label' => Html::icon('question-sign') . ' ' . Yii::t('app', 'คำแนะนำการใช้งาน'), 'url' => ['/site/docs']];
 
 // display Logout to logged in users
 //if (!Yii::$app->user->isGuest) {
@@ -68,12 +97,20 @@ use yii\bootstrap\Html;
 //if (Yii::$app->user->isGuest) {    
 //    $menuItems[] = ['label' => Yii::t('app', 'Login'), 'url' => ['/site/login']];
 //}
-
-                echo Nav::widget([
+//                echo Nav::widget([
+//                    'options' => ['class' => 'nav navbar-nav navbar-right'],
+//                    'items' => $menuItems,
+//                    'encodeLabels' => false,
+//                ]);
+                $menuItems = suPnPsu\core\models\FrontendNavigate::genCount($menuItems);
+                
+                echo dmstr\widgets\Menu::widget([
                     'options' => ['class' => 'nav navbar-nav navbar-right'],
-                    'items' => $menuItems,
                     'encodeLabels' => false,
+                    //'linkTemplate' =>'<a href="{url}">{icon} {label} {badge}</a>',
+                    'items' => $menuItems,
                 ]);
+
 //NavBar::end();
                 ?>
                 <?php /*
@@ -373,4 +410,4 @@ use yii\bootstrap\Html;
     </div>
     <!-- /#navbar -->
 
-</div>
+<!--</div>-->
